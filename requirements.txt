@@ -1,0 +1,14 @@
+flask
+pandas
+numpy
+python-dotenv
+sentence-transformers
+faiss-cpu
+langchain
+langchain-community
+langchain-core
+langgraph
+pypdf
+mcp
+requests
+pytest

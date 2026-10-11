@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TravelAssist — Corporate Travel Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">TA</div>
+        <div>
+          <div class="brand-name">TravelAssist</div>
+          <div class="brand-subtitle">Policy Intelligence</div>
+        </div>
+      </div>
+
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="nav">
+        <button class="nav-item active" data-view="assistant">
+          <span class="nav-icon">⌘</span><span>AI Assistant</span>
+        </button>
+        <button class="nav-item" data-view="policies">
+          <span class="nav-icon">▤</span><span>Policies</span>
+        </button>
+        <button class="nav-item" data-view="eligibility">
+          <span class="nav-icon">✓</span><span>Employee Eligibility</span>
+        </button>
+        <button class="nav-item" data-view="validation">
+          <span class="nav-icon">◈</span><span>Trip Validation</span>
+        </button>
+        <button class="nav-item" data-view="reimbursement">
+          <span class="nav-icon">₹</span><span>Reimbursement</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-divider"></div>
+
+      <div class="workspace-label">SYSTEM</div>
+      <div class="system-card">
+        <div class="status-row">
+          <span class="status-dot"></span>
+          <span>All systems operational</span>
+        </div>
+        <div class="system-detail">RAG · Tools · MCP · LLM</div>
+      </div>
+
+      <button class="clear-btn" id="clearBtn">
+        <span>↻</span> Clear conversation
+      </button>
+
+      <div class="sidebar-footer">
+        <div class="secure-line"><span>●</span> Internal assistant</div>
+        <div>v1.0 · Corporate Travel</div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">CORPORATE TRAVEL OPERATIONS</div>
+          <h1 id="pageTitle">AI Travel Assistant</h1>
+        </div>
+
+      </header>
+
+      <section class="content">
+        <div class="hero-grid">
+          <div class="hero-card">
+            <div class="hero-badge">✦ AI-POWERED POLICY ASSISTANT</div>
+            <h2>Make travel decisions<br><span>with confidence.</span></h2>
+            <p>Ask policy questions, check employee eligibility, validate trips and calculate reimbursable amounts using your company knowledge base.</p>
+            <div class="capabilities">
+              <span>◉ Policy RAG</span>
+              <span>⚙ Tool Calling</span>
+              <span>◌ Conversation Memory</span>
+              <span>◇ MCP Ready</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-layout">
+          <section class="chat-panel">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title">Travel & Policy Copilot</div>
+                <div class="panel-subtitle">Ask a question or choose an action to get started</div>
+              </div>
+              <div class="live-badge"><span class="pulse"></span> Live</div>
+            </div>
+
+            <div class="chat-body" id="chatBody">
+              <div class="welcome-block" id="welcomeBlock">
+                <div class="assistant-avatar">TA</div>
+                <div class="welcome-content">
+                  <div class="message-author">TravelAssist <span>AI Assistant</span></div>
+                  <h3>Good to see you.</h3>
+                  <p>I can help you navigate corporate travel rules and make policy-based decisions.</p>
+
+                  <div class="quick-grid">
+                    <button class="quick-card" data-question="What is the airport travel limit in India?">
+                      <span class="quick-icon blue">✈</span>
+                      <span><strong>Airport policy</strong><small>Check travel limits</small></span>
+                      <b>→</b>
+                    </button>
+                    <button class="quick-card" data-question="Is EMP001 eligible for company travel?">
+                      <span class="quick-icon purple">✓</span>
+                      <span><strong>Check eligibility</strong><small>Verify an employee</small></span>
+                      <b>→</b>
+                    </button>
+                    <button class="quick-card" data-question="Can EMP001 claim INR 2500 for an airport trip at 22:30?">
+                      <span class="quick-icon green">◈</span>
+                      <span><strong>Validate trip</strong><small>Check policy compliance</small></span>
+                      <b>→</b>
+                    </button>
+                    <button class="quick-card" data-question="How much can be reimbursed for a trip amount of INR 2500 with a policy limit of INR 2000?">
+                      <span class="quick-icon orange">₹</span>
+                      <span><strong>Reimbursement</strong><small>Calculate eligible amount</small></span>
+                      <b>→</b>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="thinking" id="thinking">
+              <div class="thinking-avatar">TA</div>
+              <div>
+                <div class="thinking-title">TravelAssist is thinking</div>
+                <div class="thinking-steps">
+                  <span>Understanding request</span><span>•</span><span>Choosing tools</span><span>•</span><span>Preparing answer</span>
+                </div>
+              </div>
+              <div class="typing"><i></i><i></i><i></i></div>
+            </div>
+
+            <div class="composer-wrap">
+              <div class="composer">
+                <textarea id="questionInput" rows="1" placeholder="Ask about travel policy, eligibility, validation or reimbursement..."></textarea>
+                <button class="send-btn" id="sendBtn" aria-label="Send">↑</button>
+              </div>
+              <div class="composer-footer">
+                <span>Press <b>Enter</b> to send · <b>Shift + Enter</b> for a new line</span>
+              </div>
+            </div>
+          </section>
+
+
+        </div>
+
+      </section>
+    </main>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
